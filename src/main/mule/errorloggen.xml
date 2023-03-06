@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<flow name="fastError" doc:id="a12da731-7b4e-40dd-a863-189a9d242867" >
+		<scheduler doc:name="Scheduler" doc:id="03bfe81e-d261-4fd6-a7de-ca71e97e793d" >
+			<scheduling-strategy >
+				<fixed-frequency frequency="1" timeUnit="MINUTES"/>
+			</scheduling-strategy>
+		</scheduler>
+		<raise-error doc:name="Raise error" doc:id="0593a093-eec6-432a-aaae-4d829d9d8904" type="CUSTOM:FAST" description="One per minute"/>
+	</flow>
+<!-- [STUDIO:"mediumError"]	<flow name="mediumError" doc:id="b04ccb7f-92e8-4579-ba13-d67595a5cf9e" >
+		<scheduler doc:name="Scheduler" doc:id="fb6fa20f-6fd1-4489-84dd-ef2faf8c6ca0" >
+			<scheduling-strategy >
+				<fixed-frequency frequency="10" timeUnit="MINUTES"/>
+			</scheduling-strategy>
+		</scheduler>
+		<raise-error doc:name="Raise error" doc:id="aef012f0-b4a7-4b4c-a889-a4f0d26ecd35" type="CUSTOM:MEDIUM" description="One per 10 min"/>
+	</flow> [STUDIO] -->
+<!-- [STUDIO:"slowError"]	<flow name="slowError" doc:id="fefbf5de-7d36-4b3e-972b-a3fde3d4d76e" >
+		<scheduler doc:name="Scheduler" doc:id="38c629cb-63de-4f1a-9f51-5f191a226239" >
+			<scheduling-strategy >
+				<fixed-frequency frequency="1" timeUnit="HOURS"/>
+			</scheduling-strategy>
+		</scheduler>
+		<raise-error doc:name="Raise error" doc:id="c1409d28-d3e8-4477-8e53-87411226108d" type="CUSTOM:SLOW" description="One per 1 h"/>
+	</flow> [STUDIO] -->
+</mule>
